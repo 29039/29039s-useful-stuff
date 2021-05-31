@@ -4,4 +4,4 @@ I licensed it by GPL3.0 in the hopes that if you find it useful, make improvemen
 
 But if GPL3.0 doesn't suit you for whatever reason, use any FSF approved license that you like.
 
-Just keep a note/credit back to https://github.com/29039/29039s-useful-stuff/ so you know where you got it from
+I suggest keeping a note/credit back to https://github.com/29039/29039s-useful-stuff/ so you know where you got it from, especially if you are redistributing to somewhere else.
