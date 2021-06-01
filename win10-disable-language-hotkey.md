@@ -23,13 +23,6 @@ Windows 10 Settings > Time & Language > Language > Spelling, typing, & keyboard 
     "Language Hotkey"="3"
     "Layout Hotkey"="3"
     
-    ; for new user profiles
-    
-    [HKEY_USERS\.DEFAULT\Keyboard Layout\Toggle]
-    "Hotkey"="3"
-    "Language Hotkey"="3"
-    "Layout Hotkey"="3"
-    
     ; Disable language bar at bottom even if multiple languages are installed
     
     ; for current user
@@ -37,9 +30,5 @@ Windows 10 Settings > Time & Language > Language > Spelling, typing, & keyboard 
     [HKEY_CURRENT_USER\SOFTWARE\Microsoft\CTF\LangBar]
     "ShowStatus"=dword:00000003
     
-    ; for new user profiles
-    
-    [HKEY_USERS\.DEFAULT\SOFTWARE\Microsoft\CTF\LangBar]
-    "ShowStatus"=dword:00000003
 
 Adapt as appropriate
