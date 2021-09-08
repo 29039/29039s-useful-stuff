@@ -56,6 +56,7 @@ Script 2 - Prerequisites installation stage 2 (Run as Admin):
     npm install -g @pnp/cli-microsoft365
 
 Script 3 - Change the ParserDisabled to true (No need to run as Admin):
+
 (Make sure you update the $SiteURL and $SiteList as applicable)
 
     #Actually use the Microsoft 365 CLI to change ParserDisabled to true (No need to run as Admin)
