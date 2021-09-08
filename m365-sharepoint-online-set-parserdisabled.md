@@ -55,7 +55,7 @@ Script 2 - Prerequisites installation stage 2 (Run as Admin):
     nvs use lts
     npm install -g @pnp/cli-microsoft365
 
-Script 3 - Change the ParserDisabled to true (Run as Admin):
+Script 3 - Change the ParserDisabled to true (No need to run as Admin):
 
     #Actually use the Microsoft 365 CLI to change ParserDisabled (no admin needed)
     #vars
