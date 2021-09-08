@@ -35,7 +35,7 @@ Three scripts...
 
 Script 1 - Prerequisites installation stage 1 (Run as Admin):
 
-    #pre-requisite installation stage 1 (run as admin)
+    #Prerequisites installation stage 1 (Run as Admin)
     #https://chocolatey.org/install
     #https://nodejs.org/en/download/package-manager/#windows
     Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
@@ -49,15 +49,16 @@ Make sure you EXIT powershell after you run Script 1, or Script 2 won't work.
 
 Script 2 - Prerequisites installation stage 2 (Run as Admin):
 
-    #pre-requisite installation stage 2 (Run as Sdmin)
+    #Prerequisites installation stage 2 (Run as Admin)
     #https://pnp.github.io/cli-microsoft365/user-guide/installing-cli/
     nvs add lts
     nvs use lts
     npm install -g @pnp/cli-microsoft365
 
 Script 3 - Change the ParserDisabled to true (No need to run as Admin):
+(Make sure you update the $SiteURL and $SiteList as applicable)
 
-    #Actually use the Microsoft 365 CLI to change ParserDisabled (no admin needed)
+    #Actually use the Microsoft 365 CLI to change ParserDisabled to true (No need to run as Admin)
     #vars
     $SiteURL = "https://contoso.sharepoint.com"
     $SiteList = "Documents"
