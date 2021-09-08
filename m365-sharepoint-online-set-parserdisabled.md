@@ -59,7 +59,7 @@ Script 3 - Change the ParserDisabled to true (No need to run as Admin):
 
 (Make sure you update the $SiteURL and $SiteList as applicable)
 
-    #Actually use the Microsoft 365 CLI to change ParserDisabled to true (No need to run as Admin)
+    #Actually use the CLI for Microsoft 365 to change ParserDisabled to true (No need to run as Admin)
     #vars
     $SiteURL = "https://contoso.sharepoint.com"
     $SiteList = "Documents"
