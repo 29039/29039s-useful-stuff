@@ -33,28 +33,22 @@ Either Copy & Paste each script at once, line-by-line, or put it into a real .ps
 
 Three scripts...
 
-Script 1 - Prerequisites installation stage 1 (Run as Admin):
+Script 1 - Prerequisites installation stage 1:
 
-    #Prerequisites installation stage 1 (Run as Admin)
-    #https://chocolatey.org/install
-    #https://nodejs.org/en/download/package-manager/#windows
-    Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-    choco install -y nvs
-    #powershell needs restarting for nvs to actually work
-    Write-Host "Please exit powershell and re-open" -ForegroundColor Green
-    Pause
-    exit
+    #Install scoop.sh if you don't already have it, then install nodejs:
+    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+    Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+    scoop install git
+    scoop bucket add main
+    scoop install main/nodejs-lts
+    npm install @pnp/cli-microsoft365
 
-Make sure you EXIT powershell after you run Script 1, or Script 2 won't work.
+Script 2 - Prerequisites installation stage 2:
 
-Script 2 - Prerequisites installation stage 2 (Run as Admin):
-
-    #Prerequisites installation stage 2 (Run as Admin)
-    #https://pnp.github.io/cli-microsoft365/user-guide/installing-cli/
-    nvs add lts
-    nvs use lts
-    npm install -g @pnp/cli-microsoft365
-
+    #THere is annoying setup wizard which needs to be completed which can't be automated (AFAIK)
+    #Take note of the clientId and tenantId! Save it, it will be needed.
+    m365 setup
+    
 Script 3 - Change the ParserDisabled to true (No need to run as Admin):
 
 (Make sure you update the $SiteURL and $SiteList as applicable)
@@ -63,10 +57,16 @@ Script 3 - Change the ParserDisabled to true (No need to run as Admin):
     #vars
     $SiteURL = "https://contoso.sharepoint.com"
     $SiteList = "Documents"
+    $clientId = "00000000-0000-0000-0000-000000000000" #Replace with yours
+    $tenantId = "11111111-1111-1111-1111-111111111111" #Replace with yours
     
-    #lets go
+    #version check and login
     m365 version
-    m365 login --authType browser
+    m365 login --appId $clientId --tenant $tenantId --authType "deviceCode"
+    
+    ## Copy the code provided and enter it into https://login.microsoft.com/device
+    
+    #actually implement the changes
     $SiteID = m365 spo list get --webUrl $SiteURL --title $SiteList --properties "Id" --output "json" | ConvertFrom-JSON
     m365 spo list get --webUrl $SiteURL --title $SiteList --properties "Id,ParserDisabled"
     m365 spo list set --webUrl $SiteURL --id $SiteID.ID --parserDisabled true
