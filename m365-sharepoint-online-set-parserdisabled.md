@@ -39,7 +39,6 @@ Script 1 - Prerequisites installation stage 1:
     Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
     Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
     scoop install git
-    scoop bucket add main
     scoop install main/nodejs-lts
     npm install @pnp/cli-microsoft365
 
