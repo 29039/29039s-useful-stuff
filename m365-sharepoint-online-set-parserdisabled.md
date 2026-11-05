@@ -48,7 +48,8 @@ Script 2 - Prerequisites installation stage 2:
     #Take note of the clientId and tenantId! Save it, it will be needed.
     m365 setup
     #alternative if above doesn't work:
-    #node "$env:userprofile\node_modules\@pnp\cli-microsoft365\dist\index.js" setup
+    #function m365 { node "$env:userprofile\node_modules\@pnp\cli-microsoft365\dist\index.js" $args }
+    #m365 setup
     
 Script 3 - Change the ParserDisabled to true (No need to run as Admin):
 
